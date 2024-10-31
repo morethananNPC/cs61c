@@ -107,7 +107,7 @@ class TestDot(TestCase):
         # load array addresses into argument registers
         t.input_array("a0", array0)
         t.input_array("a1", array1) 
-        # TODO
+        # TODOl
         # load array attributes into argument registers
         t.input_scalar("a2", len(array0))
         t.input_scalar("a3", 1)
@@ -251,7 +251,7 @@ class TestWriteMatrix(TestCase):
             t.check_file_output(outfile, "outputs/test_write_matrix/reference.bin")
 
     def test_simple(self):
-        self.do_write_matrix()
+        self.do_write_matrix() 
 
     def test_fopen_exception(self):
         self.do_write_matrix(fail='fopen', code=93)
@@ -264,7 +264,7 @@ class TestWriteMatrix(TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        print_coverage("write_matrix.s", verbose=False)  
+        print_coverage("write_matrix.s", verbose=False)   
 
 
 class TestClassify(TestCase):
@@ -291,9 +291,10 @@ class TestClassify(TestCase):
         t.execute(args=args)
 
         # compare the output file and
-        raise NotImplementedError("TODO")
+        t.check_file_output(out_file, ref_file) 
         # TODO
         # compare the classification output with `check_stdout`
+        t.check_stdout("2")
 
     @classmethod
     def tearDownClass(cls):
